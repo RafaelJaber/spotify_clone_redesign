@@ -1,0 +1,22 @@
+<div class="flex flex-col h-full w-[250px] bg-white dark:bg-slate-800">
+  <div class="flex items-center justify-evenly mt-10">
+    <div class="menu-top" >
+      <input type="text" autocomplete="off" placeholder="Pesquisar" id="input-search" >
+      <button>
+        <i class="ph-bold ph-magnifying-glass mr-2 text-zinc-400 cursor-pointer"></i>
+      </button>
+    </div>
+
+    @if (theme === ThemeEnum.LIGHT) {
+      <button class="theme-button text-gray-500" (click)="setTheme(ThemeEnum.DARK)">
+        <i class="ph-fill ph-moon"></i>
+      </button>
+    } @else {
+      <button class="theme-button text-slate-400" (click)="setTheme(ThemeEnum.LIGHT)">
+        <i class="ph-fill ph-sun"></i>
+      </button>
+    }
+  </div>
+
+  <app-right-bar-top-artists />
+</div>

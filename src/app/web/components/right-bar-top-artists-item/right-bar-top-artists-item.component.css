@@ -1,0 +1,3 @@
+.artist-image {
+  @apply w-[50px] h-[50px] rounded-full
+}

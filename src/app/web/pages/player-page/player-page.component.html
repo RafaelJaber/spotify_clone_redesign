@@ -1,5 +1,9 @@
 <div class="flex h-full w-full">
-  <app-left-bar />
+  <app-left-bar class="grow-0" />
 
-  <router-outlet />
+  <div class="grow">
+    <router-outlet />
+  </div>
+
+  <app-right-bar class="grow-0" />
 </div>

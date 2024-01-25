@@ -1,0 +1,15 @@
+.menu-top {
+  @apply flex w-[200px] items-center bg-slate-100 rounded-md
+    dark:bg-slate-700
+}
+
+#input-search {
+  @apply p-2 outline-0 bg-transparent placeholder-zinc-400 w-full
+    dark:placeholder-slate-400
+}
+
+.theme-button {
+  @apply text-[22px] hover:scale-110 active:scale-95 transition duration-75 ease-in
+}
+
+
