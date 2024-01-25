@@ -9,8 +9,15 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'player',
+    loadChildren: () =>
+      import('./web/pages/player-page/player-page.routes').then(
+        (r) => r.PLAYER_PAGE_ROUTES,
+      ),
+  },
+  {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'player',
     pathMatch: 'full',
   },
 ];
