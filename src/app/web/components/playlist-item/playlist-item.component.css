@@ -1,0 +1,15 @@
+.playlist-item {
+  @apply w-[375px] h-[60px] bg-slate-200 bg-opacity-50 rounded
+    flex items-center justify-between pr-2 cursor-pointer dark:bg-slate-500 dark:bg-opacity-20
+}
+
+.art-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @apply w-[60px] h-[60px] rounded-l
+}
+
+.playlist-interactive-btn {
+  @apply h-[50px] w-[50px] rounded-full bg-green-500 flex justify-center items-center opacity-0 group-hover:opacity-100 group-active:scale-95 transition duration-75 ease-in
+}

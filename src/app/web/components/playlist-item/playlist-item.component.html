@@ -1,0 +1,26 @@
+<div class="group playlist-item relative">
+  <div class="flex items-center">
+    <div
+      class="art-image"
+      [style.background-image]="'url(' + playlist.imageUrl + ')'"
+    ></div>
+    <span class="ml-1 text-xs font-light select-none dark:text-white">{{ playlist.name }}</span>
+  </div>
+
+  @if (isPlaying) {
+    <button class="playlist-interactive-btn">
+      <i class="ph-fill ph-pause text-[32px]"></i>
+    </button>
+
+    <div class="absolute text-[32px] right-[16px] bottom-[3px] group-hover:hidden dark:text-white">
+      <i class="ph-fill ph-waveform"></i>
+    </div>
+
+  } @else {
+    <button class="playlist-interactive-btn">
+      <i class="ph-fill ph-play text-[32px]"></i>
+    </button>
+  }
+
+
+</div>
