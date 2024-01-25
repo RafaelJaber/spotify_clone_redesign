@@ -2,11 +2,12 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ThemeService } from '../../../domain/services/theme.service';
 import { Subscription } from 'rxjs';
 import { ThemeEnum } from '../../../domain/enums/theme.enum';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
 })
@@ -15,6 +16,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   private subs: Subscription[] = [];
 
   protected themeBackground: string = '';
+  protected logoSpotify: string = '';
 
   ngOnInit(): void {
     this.init();
@@ -31,9 +33,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       switch (theme) {
         case ThemeEnum.DARK:
           this.themeBackground = '/assets/images/bg-login-dark.svg';
+          this.logoSpotify = '/assets/images/logo-spotify-dark.svg';
           break;
         case ThemeEnum.LIGHT:
           this.themeBackground = '/assets/images/bg-login-light.svg';
+          this.logoSpotify = '/assets/images/logo-spotify-light.svg';
           break;
       }
     });
