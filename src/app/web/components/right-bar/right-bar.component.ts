@@ -3,11 +3,12 @@ import { ThemeService } from '../../../domain/services/theme.service';
 import { Subscription } from 'rxjs';
 import { ThemeEnum } from '../../../domain/enums/theme.enum';
 import { RightBarTopArtistsComponent } from '../right-bar-top-artists/right-bar-top-artists.component';
+import { MiniPlayerComponent } from '../mini-player/mini-player.component';
 
 @Component({
   selector: 'app-right-bar',
   standalone: true,
-  imports: [RightBarTopArtistsComponent],
+  imports: [RightBarTopArtistsComponent, MiniPlayerComponent],
   templateUrl: './right-bar.component.html',
   styleUrl: './right-bar.component.css',
 })

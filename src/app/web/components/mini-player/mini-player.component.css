@@ -1,0 +1,6 @@
+.btn-icon-base {
+  @apply flex items-center
+    hover:scale-105
+    active:scale-95
+    transition duration-75 ease-in
+}
