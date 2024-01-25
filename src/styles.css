@@ -9,6 +9,20 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  @apply scrollbar-thumb-green-100 scrollbar-track-zinc-100
+    scrollbar-thumb-rounded-full scrollbar-track-rounded-full
+    hover:scrollbar-thumb-green-200
+    active:scrollbar-thumb-green-300
+}
+
+html.dark {
+  @apply scrollbar-thumb-green-950 scrollbar-track-zinc-900
+  scrollbar-thumb-rounded-full scrollbar-track-rounded-full
+  hover:scrollbar-thumb-green-800
+  active:scrollbar-thumb-green-700
+}
+
 body {
   height: 100vh;
   width: 100vw;
