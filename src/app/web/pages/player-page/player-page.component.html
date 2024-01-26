@@ -1,9 +1,13 @@
-<div class="flex h-full w-full">
-  <app-left-bar class="grow-0" />
-
-  <div class="grow">
-    <router-outlet />
+<div class="container flex">
+  <div class="flex-none w-[300px]">
+    <app-left-bar />
   </div>
 
-  <app-right-bar class="grow-0" />
+  <div class="flex-grow-1" style="max-width: calc(100vw - 300px - 250px)">
+    <router-outlet  />
+  </div>
+
+  <div class="flex-none w-[250px]">
+    <app-right-bar />
+  </div>
 </div>
