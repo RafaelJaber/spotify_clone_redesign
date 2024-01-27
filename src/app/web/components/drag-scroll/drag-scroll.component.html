@@ -1,0 +1,33 @@
+<div class="flex gap-4">
+  @if (!isFirstItem) {
+    <button
+      class="btn-arrow left-arrow"
+      (click)="ds.moveLeft()"
+    >
+      <i class="ph-bold ph-caret-left"></i>
+    </button>
+  } @else {
+    <div class="w-12" > </div>
+  }
+  <drag-scroll #ds
+               [scrollbar-hidden]="true"
+               [drag-disabled]="true"
+               class="h-[250px]"
+               (reachesLeftBound)="onIsFirst($event)"
+               (reachesRightBound)="onIsLast($event)"
+  >
+    @for (cardItem of cardItens; track cardItem.id) {
+      <app-card-item drag-scroll-item [item]="cardItem" />
+    }
+  </drag-scroll>
+  @if (!isLastItem) {
+    <button
+      class="btn-arrow right-arrow"
+      (click)="ds.moveRight()"
+    >
+      <i class="ph-bold ph-caret-right"></i>
+    </button>
+  } @else {
+    <div class="w-12" > </div>
+  }
+</div>

@@ -1,0 +1,6 @@
+.content-list {
+  @apply flex flex-col p-6
+}
+.content-list>h2 {
+  @apply text-2xl font-bold text-zinc-700 mb-4 dark:text-zinc-200
+}

@@ -1,0 +1,16 @@
+.card {
+  @apply flex flex-col h-[250px] w-[210px] bg-zinc-200 bg-opacity-30 p-2.5 rounded relative cursor-pointer dark:bg-white dark:bg-opacity-10 mr-4
+}
+
+.art-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @apply w-full h-[160px] rounded bg-blue-50
+}
+
+.playlist-interactive-btn {
+  @apply h-[50px] w-[50px] rounded-full bg-green-500
+    absolute right-4 bottom-20
+    flex justify-center items-center opacity-0 group-hover:opacity-100 group-active:scale-95 transition duration-75 ease-in
+}

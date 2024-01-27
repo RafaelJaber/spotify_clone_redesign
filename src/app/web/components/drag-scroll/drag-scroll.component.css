@@ -1,0 +1,33 @@
+@-webkit-keyframes left-arrow-keyframe {
+  0% {
+    -webkit-transform: translateX(0);
+    opacity: 0.6
+  }
+  50% {
+    -webkit-transform: translateX(-0.1em);
+    opacity: 0.9
+  }
+}
+@-webkit-keyframes right-arrow-keyframe {
+  0% {
+    -webkit-transform: translateX(0);
+    opacity: 0.6
+  }
+  50% {
+    -webkit-transform: translateX(0.1em);
+    opacity: 0.9 }
+}
+
+.btn-arrow {
+  opacity: .6;
+  transform-origin: 50% 50%;
+  @apply text-[2rem] text-green-600 cursor-pointer
+}
+
+.left-arrow {
+  -webkit-animation: left-arrow-keyframe 1.5s infinite ease-in-out;
+}
+
+.right-arrow {
+  -webkit-animation: right-arrow-keyframe 1.5s infinite ease-in-out;
+}

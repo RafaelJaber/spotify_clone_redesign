@@ -1,11 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistItemComponent } from '../../components/playlist-item/playlist-item.component';
 import { IPlaylistModel } from '../../../domain/interfaces/IPlaylist.model';
+import { CardItemComponent } from '../../components/card-item/card-item.component';
+import { DragScrollSharedComponent } from '../../components/drag-scroll/drag-scroll.component';
+import { DragScrollItemDirective } from 'ngx-drag-scroll';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [PlaylistItemComponent],
+  imports: [
+    PlaylistItemComponent,
+    CardItemComponent,
+    DragScrollSharedComponent,
+    DragScrollItemDirective,
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
@@ -21,7 +29,7 @@ export class HomePageComponent implements OnInit {
       const prov: IPlaylistModel = {
         id: i.toString(),
         name: 'Playlist ' + i.toString(),
-        imageUrl: 'https://github.com.br',
+        imageUrl: 'https://github.com/rafaeljaber.png',
       };
       this.playlists.push(prov);
     }
