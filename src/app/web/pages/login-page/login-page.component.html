@@ -5,7 +5,7 @@
   <div class="login-component">
     <img [ngSrc]="logoSpotify" alt="Logo Spotify" height="115" width="383"/>
 
-    <button class="btn-login">
+    <button class="btn-login" [disabled]="isLoading" (click)="onLoginButtonClicked()">
       Entrar
       <i class="ph-bold ph-sign-out"></i>
     </button>

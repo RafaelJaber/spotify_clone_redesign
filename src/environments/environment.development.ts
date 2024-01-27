@@ -1,5 +1,5 @@
 export const environment = {
-  clientId: '',
+  clientId: 'd344b09a67c84ace80caee4b98dfd84a',
   authEndpoint: 'https://accounts.spotify.com/authorize',
   redirectUri: 'http://localhost:4200/login/',
   scopes: [

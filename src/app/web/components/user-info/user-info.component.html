@@ -1,8 +1,10 @@
 <div class="flex justify-between items-center text-green-500 border-t border-gray-300 pt-3 pb-3 pl-2.5 pr-2.5">
   <div class="flex items-center gap-3">
-    <img src="https://github.com/rafaeljaber.png" class="h-[55px] w-[55px] rounded-full" alt="Imagem do usuário">
-    <span class="font-bold text-base" >Rafael Jáber</span>
+    <img [src]="user.imageUrl" class="h-[55px] w-[55px] rounded-full" alt="Imagem do usuário">
+    <span class="font-bold text-base" >{{ user.name }}</span>
   </div>
 
-  <i class="ph-fill ph-sign-out text-[32px]"></i>
+  <button (click)="onClickedLogoutButton()">
+    <i class="ph-fill ph-sign-out text-[32px]"></i>
+  </button>
 </div>

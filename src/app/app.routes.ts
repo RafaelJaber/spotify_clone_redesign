@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { UserIsLoggedInResolver } from '@core/resolvers/user-is-logged-in.resolver';
 
 export const routes: Routes = [
   {
@@ -14,10 +15,13 @@ export const routes: Routes = [
       import('./web/pages/player-page/player-page.routes').then(
         (r) => r.PLAYER_PAGE_ROUTES,
       ),
+    resolve: {
+      userIsLoggedIn: UserIsLoggedInResolver,
+    },
   },
   {
     path: '',
-    redirectTo: 'player',
+    redirectTo: '/player',
     pathMatch: 'full',
   },
 ];

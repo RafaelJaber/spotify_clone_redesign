@@ -3,6 +3,8 @@ import { ThemeService } from '@domain/services/theme.service';
 import { Subscription } from 'rxjs';
 import { ThemeEnum } from '@domain/enums/theme.enum';
 import { NgOptimizedImage } from '@angular/common';
+import { SpotifyService } from '@domain/services/spotify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -13,13 +15,23 @@ import { NgOptimizedImage } from '@angular/common';
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
+  private spotifyService = inject(SpotifyService);
+  private router = inject(Router);
   private subs: Subscription[] = [];
 
   protected themeBackground: string = '';
   protected logoSpotify: string = '';
+  protected isLoading: boolean = false;
 
   ngOnInit(): void {
-    this.init();
+    this.init()
+      .then(() => {
+        this.isLoading = true;
+        this.router.navigate(['/player']).then();
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 
   ngOnDestroy(): void {
@@ -28,7 +40,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  private init() {
+  private async init() {
+    await this.verifySpotifyToken();
     const sub = this.themeService.theme.subscribe((theme) => {
       switch (theme) {
         case ThemeEnum.DARK:
@@ -42,5 +55,17 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       }
     });
     this.subs.push(sub);
+  }
+
+  protected onLoginButtonClicked() {
+    this.isLoading = true;
+    window.location.href = this.spotifyService.getLoginUrl();
+  }
+
+  private async verifySpotifyToken() {
+    const token = this.spotifyService.getTokenUrlCallback();
+    if (token != '') {
+      this.spotifyService.setAccessToken(token);
+    }
   }
 }
