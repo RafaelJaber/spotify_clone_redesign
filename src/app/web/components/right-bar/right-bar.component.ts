@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ThemeService } from '../../../domain/services/theme.service';
+import { ThemeService } from '@domain/services/theme.service';
 import { Subscription } from 'rxjs';
-import { ThemeEnum } from '../../../domain/enums/theme.enum';
+import { ThemeEnum } from '@domain/enums/theme.enum';
 import { RightBarTopArtistsComponent } from '../right-bar-top-artists/right-bar-top-artists.component';
 import { MiniPlayerComponent } from '../mini-player/mini-player.component';
 

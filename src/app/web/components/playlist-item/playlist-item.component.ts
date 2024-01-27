@@ -1,6 +1,6 @@
 import { booleanAttribute, Component, Input } from '@angular/core';
-import { IPlaylistModel } from '../../../domain/interfaces/IPlaylist.model';
-import { newPlaylist } from '../../../core/utils/factories';
+import { IPlaylistModel } from '@domain/interfaces/IPlaylist.model';
+import { newPlaylist } from '@core/utils/factories';
 
 @Component({
   selector: 'app-playlist-item',

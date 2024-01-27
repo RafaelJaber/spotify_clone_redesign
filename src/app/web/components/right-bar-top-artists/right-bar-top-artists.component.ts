@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RightBarTopArtistsItemComponent } from '../right-bar-top-artists-item/right-bar-top-artists-item.component';
-import { IArtistsModel } from '../../../domain/interfaces/IArtists.model';
+import { IArtistsModel } from '@domain/interfaces/IArtists.model';
 
 @Component({
   selector: 'app-right-bar-top-artists',

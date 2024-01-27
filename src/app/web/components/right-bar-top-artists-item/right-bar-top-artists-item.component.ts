@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IArtistsModel } from '../../../domain/interfaces/IArtists.model';
+import { IArtistsModel } from '@domain/interfaces/IArtists.model';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({

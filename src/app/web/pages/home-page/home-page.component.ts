@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaylistItemComponent } from '../../components/playlist-item/playlist-item.component';
-import { IPlaylistModel } from '../../../domain/interfaces/IPlaylist.model';
-import { CardItemComponent } from '../../components/card-item/card-item.component';
-import { DragScrollSharedComponent } from '../../components/drag-scroll/drag-scroll.component';
+import { PlaylistItemComponent } from '@web/components/playlist-item/playlist-item.component';
+import { IPlaylistModel } from '@domain/interfaces/IPlaylist.model';
+import { CardItemComponent } from '@web/components/card-item/card-item.component';
+import { DragScrollSharedComponent } from '@web/components/drag-scroll/drag-scroll.component';
 import { DragScrollItemDirective } from 'ngx-drag-scroll';
 
 @Component({

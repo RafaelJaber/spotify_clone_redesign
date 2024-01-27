@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CardItemComponent } from '../card-item/card-item.component';
 import { DragScrollComponent, DragScrollItemDirective } from 'ngx-drag-scroll';
-import { IPlaylistModel } from '../../../domain/interfaces/IPlaylist.model';
-import { IArtistsModel } from '../../../domain/interfaces/IArtists.model';
+import { IPlaylistModel } from '@domain/interfaces/IPlaylist.model';
+import { IArtistsModel } from '@domain/interfaces/IArtists.model';
 
 @Component({
   selector: 'app-drag-scroll',

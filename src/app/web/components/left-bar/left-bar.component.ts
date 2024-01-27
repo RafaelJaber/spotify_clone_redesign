@@ -1,12 +1,12 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ButtonNavigationComponent } from '../button-navigation/button-navigation.component';
 import { NgOptimizedImage } from '@angular/common';
-import { newPlaylist } from '../../../core/utils/factories';
-import { IPlaylistModel } from '../../../domain/interfaces/IPlaylist.model';
+import { newPlaylist } from '@core/utils/factories';
+import { IPlaylistModel } from '@domain/interfaces/IPlaylist.model';
 import { UserInfoComponent } from '../user-info/user-info.component';
-import { ThemeService } from '../../../domain/services/theme.service';
+import { ThemeService } from '@domain/services/theme.service';
 import { Subscription } from 'rxjs';
-import { ThemeEnum } from '../../../domain/enums/theme.enum';
+import { ThemeEnum } from '@domain/enums/theme.enum';
 
 @Component({
   selector: 'app-left-bar',
