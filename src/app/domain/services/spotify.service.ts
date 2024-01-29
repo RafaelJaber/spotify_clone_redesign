@@ -3,7 +3,11 @@ import Spotify from 'spotify-web-api-js';
 import { Router } from '@angular/router';
 import { IUserModel } from '@domain/interfaces/IUser.model';
 import { environment } from '@environments/environment';
-import { SpotifyUserModelToUser } from '@core/mappers/spotify.mapper';
+import {
+  SpotifyArtistsModelListToArtists,
+  SpotifyPlaylistModelToPlaylist,
+  SpotifyUserModelToUser,
+} from '@core/mappers/spotify.mapper';
 @Injectable({
   providedIn: 'root',
 })
@@ -54,6 +58,28 @@ export class SpotifyService {
     } catch (e) {
       return false;
     }
+  }
+
+  async getPlaylists(limit = 50) {
+    const playlist = await this.spotifyApi.getUserPlaylists(this.user.id, {
+      limit,
+    });
+    return playlist.items.map(SpotifyPlaylistModelToPlaylist);
+  }
+
+  async getFeaturedPlaylists() {
+    const response = await this.spotifyApi.getFeaturedPlaylists();
+    return response.playlists.items.map(SpotifyPlaylistModelToPlaylist);
+  }
+
+  async getCategoryPlaylists(categoryId: string = 'toplists') {
+    const response = await this.spotifyApi.getCategoryPlaylists(categoryId);
+    return response.playlists.items.map(SpotifyPlaylistModelToPlaylist);
+  }
+
+  async getTopArtists(limit = 10, offset = 0) {
+    const response = await this.spotifyApi.getMyTopArtists({ limit, offset });
+    return response.items.map(SpotifyArtistsModelListToArtists);
   }
 
   async logout() {

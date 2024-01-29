@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RightBarTopArtistsItemComponent } from '../right-bar-top-artists-item/right-bar-top-artists-item.component';
 import { IArtistsModel } from '@domain/interfaces/IArtists.model';
+import { SpotifyService } from '@domain/services/spotify.service';
 
 @Component({
   selector: 'app-right-bar-top-artists',
@@ -10,6 +11,8 @@ import { IArtistsModel } from '@domain/interfaces/IArtists.model';
   styleUrl: './right-bar-top-artists.component.css',
 })
 export class RightBarTopArtistsComponent implements OnInit {
+  private spotifyService = inject(SpotifyService);
+
   protected artists: IArtistsModel[] = [];
 
   ngOnInit(): void {
@@ -17,13 +20,8 @@ export class RightBarTopArtistsComponent implements OnInit {
   }
 
   private init() {
-    for (let i = 0; i < 5; i++) {
-      const prov: IArtistsModel = {
-        id: i.toString(),
-        name: 'Artista ' + i.toString(),
-        imageUrl: 'https://github.com/rafaeljaber.png',
-      };
-      this.artists.push(prov);
-    }
+    this.spotifyService.getTopArtists(5).then((artists) => {
+      this.artists = artists;
+    });
   }
 }

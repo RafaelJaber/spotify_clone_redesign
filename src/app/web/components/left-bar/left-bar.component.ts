@@ -1,12 +1,12 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ButtonNavigationComponent } from '../button-navigation/button-navigation.component';
 import { NgOptimizedImage } from '@angular/common';
-import { newPlaylist } from '@core/utils/factories';
 import { IPlaylistModel } from '@domain/interfaces/IPlaylist.model';
 import { UserInfoComponent } from '../user-info/user-info.component';
 import { ThemeService } from '@domain/services/theme.service';
 import { Subscription } from 'rxjs';
 import { ThemeEnum } from '@domain/enums/theme.enum';
+import { SpotifyService } from '@domain/services/spotify.service';
 
 @Component({
   selector: 'app-left-bar',
@@ -16,6 +16,7 @@ import { ThemeEnum } from '@domain/enums/theme.enum';
   styleUrl: './left-bar.component.css',
 })
 export class LeftBarComponent implements OnInit, OnDestroy {
+  private spotifyService = inject(SpotifyService);
   private themeService = inject(ThemeService);
   private subs: Subscription[] = [];
 
@@ -24,9 +25,7 @@ export class LeftBarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.init();
-    for (let i = 0; i < 20; i++) {
-      this.playlists.push(newPlaylist());
-    }
+    this.getPlaylists();
   }
 
   ngOnDestroy(): void {
@@ -47,5 +46,11 @@ export class LeftBarComponent implements OnInit, OnDestroy {
       }
     });
     this.subs.push(sub);
+  }
+
+  private getPlaylists() {
+    this.spotifyService.getPlaylists().then((playlist) => {
+      this.playlists = playlist;
+    });
   }
 }

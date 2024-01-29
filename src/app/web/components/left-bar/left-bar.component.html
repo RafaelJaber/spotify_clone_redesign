@@ -23,7 +23,7 @@
       <span class="text-gray-500 text-xs font-normal ml-4">PLAYLIST</span>
       <div class="flex flex-col gap-3 m-auto mt-2 " style="max-height: calc(100vh - 456px)">
         @for (playlist of playlists; track $index) {
-          <app-button-navigation text="Alguma Playlist que será carregada">
+          <app-button-navigation [text]="playlist.name">
             <i class="ph-fill ph-music-notes text-[22px]"></i>
           </app-button-navigation>
         }
