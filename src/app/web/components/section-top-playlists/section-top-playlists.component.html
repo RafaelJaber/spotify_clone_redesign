@@ -1,0 +1,9 @@
+<div class="flex flex-col w-full bg-gradient-to-b from-green-500 to-slate-50 to-80% dark:from-green-700 dark:to-slate-950">
+  <h1 class="text-5xl font-bold text-zinc-700 ml-8 mt-10 dark:text-gray-300">Boa tarde</h1>
+
+  <div class="flex flex-wrap gap-4 justify-center mt-6 mb-4">
+    @for (playlist of playlists; track playlist.id) {
+      <app-playlist-item [playlist]="playlist" />
+    }
+  </div>
+</div>

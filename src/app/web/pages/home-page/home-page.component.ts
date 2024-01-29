@@ -5,6 +5,7 @@ import { CardItemComponent } from '@web/components/card-item/card-item.component
 import { DragScrollSharedComponent } from '@web/components/drag-scroll/drag-scroll.component';
 import { DragScrollItemDirective } from 'ngx-drag-scroll';
 import { SpotifyService } from '@domain/services/spotify.service';
+import { SectionTopPlaylistsComponent } from '@web/components/section-top-playlists/section-top-playlists.component';
 
 @Component({
   selector: 'app-home-page',
@@ -14,6 +15,7 @@ import { SpotifyService } from '@domain/services/spotify.service';
     CardItemComponent,
     DragScrollSharedComponent,
     DragScrollItemDirective,
+    SectionTopPlaylistsComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -21,7 +23,6 @@ import { SpotifyService } from '@domain/services/spotify.service';
 export class HomePageComponent implements OnInit {
   private spotifyService = inject(SpotifyService);
 
-  protected playlists: IPlaylistModel[] = [];
   protected featuredPlaylists: IPlaylistModel[] = [];
   protected topListPlaylist: IPlaylistModel[] = [];
 
@@ -30,15 +31,8 @@ export class HomePageComponent implements OnInit {
   }
 
   private init() {
-    this.getTopSixPlaylist();
     this.getFeaturedPlaylists();
     this.getTopListPlaylists();
-  }
-
-  private getTopSixPlaylist() {
-    this.spotifyService.getPlaylists(6).then((playlists) => {
-      this.playlists = playlists;
-    });
   }
 
   private getFeaturedPlaylists() {
