@@ -1,1 +1,15 @@
-<p>like-musics-page works!</p>
+<div class="flex flex-col w-full scrollbar-thin overflow-y-auto max-h-screen">
+  <app-section-top-playlists />
+
+  <h2 class="text-xl font-bold ml-8 mt-2 dark:text-slate-200">
+    Músicas Curtidas
+  </h2>
+
+  <app-list-track-table [tracks]="musics" />
+
+  <app-paginator
+    [paginator]="paginator"
+    (nextEvent)="onClickedNextPage($event)"
+    (previousEvent)="onClickedPreviousPage($event)"
+  />
+</div>

@@ -5,6 +5,7 @@ import { IUserModel } from '@domain/interfaces/IUser.model';
 import { environment } from '@environments/environment';
 import {
   SpotifyArtistsModelListToArtists,
+  SpotifyMusicModelToMusic,
   SpotifyPlaylistModelToPlaylist,
   SpotifyUserModelToUser,
 } from '@core/mappers/spotify.mapper';
@@ -80,6 +81,21 @@ export class SpotifyService {
   async getTopArtists(limit = 10, offset = 0) {
     const response = await this.spotifyApi.getMyTopArtists({ limit, offset });
     return response.items.map(SpotifyArtistsModelListToArtists);
+  }
+
+  async getLikedMusics(limit = 50, offset = 0) {
+    const response = await this.spotifyApi.getMySavedTracks({ limit, offset });
+    const musics = response.items.map((item) => {
+      return SpotifyMusicModelToMusic(item.track);
+    });
+
+    return {
+      musics,
+      totalItens: response.total,
+      next: response.next ? response.next : null,
+      previous: response.previous ? response.previous : null,
+      offset: response.offset,
+    };
   }
 
   async logout() {

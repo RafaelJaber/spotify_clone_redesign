@@ -1,0 +1,5 @@
+<div class="pl-3 pr-4 pt-4 pb-4 flex justify-between bg-white font-bold dark:bg-slate-900 dark:text-slate-200">
+  <button [disabled]="paginator.previousPageUrl" (click)="onClickedPreviousPage(paginator.previousPageUrl)" >Anterior</button>
+  <span>Exibindo {{ paginator.offset }} itens de {{ paginator.totalElements }}</span>
+  <button [disabled]="!paginator.nextPageUrl" (click)="onClickedNextPage(paginator.nextPageUrl)">Próxima</button>
+</div>

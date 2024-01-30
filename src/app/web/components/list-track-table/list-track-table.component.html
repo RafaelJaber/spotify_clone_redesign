@@ -1,0 +1,41 @@
+<div class="w-full mt-2 p-2 ">
+  <table class="w-full">
+    <thead class="text-base text-zinc-400 border-b-2 p-2 text-left">
+      <tr>
+        <th class="w-1/12 text-center">#</th>
+        <th class="w-6/12">Título</th>
+        <th class="w-4/12">Álbum</th>
+        <th class="w-1/12 text-right">
+          <i class="ph-fill ph-clock"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="text-slate-600 dark:text-slate-300 ">
+      @for (item of tracks; track item.id) {
+        <tr class="mt-2 hover:bg-black hover:bg-opacity-20 cursor-pointer transition duration-75 ease-in dark:hover:bg-white dark:hover:bg-opacity-20">
+          <td class="text-center">
+            <i class="ph-fill ph-play text-green-500"></i>
+          </td>
+          <td>
+            <div class="flex items-center gap-2">
+              <div
+                class="w-[45px] h-[45px] bg-cover bg-center bg-no-repeat"
+                [style.background-image]="'url(' + item.album.imageUrl + ')'"
+              ></div>
+              <div>
+                <p>{{ item.title }}</p>
+                <span>{{ getArtists(item.artists) }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            {{ item.album.name }}
+          </td>
+          <td class="text-right mr-1">
+            {{ item.time }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
