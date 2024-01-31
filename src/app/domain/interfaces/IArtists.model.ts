@@ -5,4 +5,5 @@ export interface IArtistsModel {
   name: string;
   imageUrl: string;
   musics?: IMusicModel[];
+  additionalInfo?: string;
 }

@@ -2,6 +2,6 @@
   <h2 class="text-green-500 font-bold text-base mt-10">TOP 5 Artistas</h2>
 
   @for (artist of artists; track artist.id) {
-    <app-right-bar-top-artists-item [artist]="artist" />
+    <app-right-bar-top-artists-item [artist]="artist" (click)="onArtistClick(artist.id)"/>
   }
 </div>

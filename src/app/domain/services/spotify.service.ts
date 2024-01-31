@@ -7,6 +7,8 @@ import {
   SpotifyArtistsModelListToArtists,
   SpotifyMusicModelToMusic,
   SpotifyPlaylistModelToPlaylist,
+  SpotifySingleArtistModelToArtist,
+  SpotifySinglePlaylistModelToPlaylist,
   SpotifyUserModelToUser,
 } from '@core/mappers/spotify.mapper';
 @Injectable({
@@ -95,6 +97,50 @@ export class SpotifyService {
       next: response.next ? response.next : null,
       previous: response.previous ? response.previous : null,
       offset: response.offset,
+    };
+  }
+
+  async getPlaylistMusics(playlistId: string, limit = 50, offset = 0) {
+    const playlistResponse = await this.spotifyApi.getPlaylist(playlistId);
+    const playlist = SpotifySinglePlaylistModelToPlaylist(playlistResponse);
+
+    const musicsResponse = await this.spotifyApi.getPlaylistTracks(
+      playlist.id,
+      {
+        limit,
+        offset,
+      },
+    );
+
+    playlist.musics = musicsResponse.items.map((music) =>
+      SpotifyMusicModelToMusic(music.track as SpotifyApi.TrackObjectFull),
+    );
+
+    return {
+      playlist,
+      totalItens: musicsResponse.total,
+      next: musicsResponse.next ? musicsResponse.next : null,
+      previous: musicsResponse.previous ? musicsResponse.previous : null,
+      offset: musicsResponse.offset,
+    };
+  }
+
+  async getArtistTrack(artistId: string, limit = 50, offset = 0) {
+    const artistResponse = await this.spotifyApi.getArtist(artistId);
+    const artist = SpotifySingleArtistModelToArtist(artistResponse);
+
+    const musicsResponse = await this.spotifyApi.getArtistTopTracks(
+      artist.id,
+      'BR',
+      {
+        limit,
+        offset,
+      },
+    );
+    artist.musics = musicsResponse.tracks.map(SpotifyMusicModelToMusic);
+
+    return {
+      artist,
     };
   }
 

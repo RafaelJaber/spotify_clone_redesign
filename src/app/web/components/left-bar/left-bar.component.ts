@@ -62,6 +62,7 @@ export class LeftBarComponent implements OnInit, OnDestroy {
       case 'Playlist':
         if (playlistId) {
           this.selected = playlistId;
+          this.router.navigate([`/player/list/playlist/${playlistId}`]).then();
         }
     }
   }

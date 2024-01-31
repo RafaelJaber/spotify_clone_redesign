@@ -1,0 +1,7 @@
+<div class="w-full scrollbar-thin overflow-y-auto max-h-screen">
+  <app-featured-banner [imageUrl]="item.imageUrl" [title]="item.name" />
+  <app-list-track-table [tracks]="item.musics !== undefined ? item.musics : []" />
+  @if (paginatorVisible) {
+    <app-paginator />
+  }
+</div>

@@ -56,6 +56,7 @@ export function SpotifySingleArtistModelToArtist(
     // @ts-ignore
     imageUrl: artist.images == undefined ? '' : artist.images.pop().url,
     musics: [],
+    additionalInfo: artist.followers.total + ' Seguidores',
   };
 }
 
