@@ -1,20 +1,21 @@
 <div class="flex flex-col h-[400px] w-full mt-6 bg-gray-100 rounded-md p-3 dark:bg-gray-800">
-  <div class="w-[210px] h-[210px] bg-black"></div>
+  <div class="w-[210px] h-[210px] bg-center bg-no-repeat bg-cover " [style.background-image]="'url(' + playerStateSignal().music.album.imageUrl + ')'"></div>
 
-  <div class="w-full mt-2 dark:text-white">
-    <span class="text-sm truncate">Músca ABC</span>
-    <div class="w-full text-center">
-      <span class="text-xs">Artista A</span>
+    <div class="w-full mt-2 dark:text-white">
+      <span class="text-sm truncate">{{ playerStateSignal().music.title }}</span>
+      <div class="w-full text-center">
+        <span class="text-xs"></span>
+      </div>
     </div>
-  </div>
 
-  <div class="flex gap-2 items-center dark:text-slate-300">
-    <span class="text-xs">3:40</span>
-    <div class="w-full relative rounded-full bg-slate-300 h-1">
-      <div class="w-[60%] absolute top-0 left-0 rounded-full bg-green-400 h-1" ></div>
+    <div class="flex gap-2 items-center dark:text-slate-300">
+      <span class="text-xs">3:40</span>
+      <div class="w-full relative rounded-full bg-slate-300 h-1">
+        <div class="w-[60%] absolute top-0 left-0 rounded-full bg-green-400 h-1" ></div>
+      </div>
+      <span class="text-xs">{{ playerStateSignal().music.time }}</span>
     </div>
-    <span class="text-xs">5:39</span>
-  </div>
+
 
 
   <div class="flex flex-col items-center mt-3 justify-center">
@@ -22,13 +23,18 @@
       <button class="btn-icon-base text-[22px] text-gray-700 dark:text-slate-400">
         <i class="ph-fill ph-shuffle"></i>
       </button>
-      <button class="btn-icon-base text-[32px] text-green-600 dark:text-slate-400">
+      <button class="btn-icon-base text-[32px] text-green-600 dark:text-slate-400" (click)="onPreviousClick()">
         <i class="ph-fill ph-skip-back"></i>
       </button>
-      <button class="btn-icon-base text-[40px] text-green-600 dark:text-slate-400">
-        <i class="ph-fill ph-play"></i>
+      <button class="btn-icon-base text-[40px] text-green-600 dark:text-slate-400" (click)="onTogglePlay()">
+        @if (playerStateSignal().isPlaying) {
+            <i class="ph-fill ph-pause"></i>
+        } @else {
+            <i class="ph-fill ph-play"></i>
+        }
       </button>
-      <button class="btn-icon-base text-[32px] text-green-600 dark:text-slate-400">
+
+      <button class="btn-icon-base text-[32px] text-green-600 dark:text-slate-400" (click)="onNextClick()">
         <i class="ph-fill ph-skip-forward"></i>
       </button>
       <button class="btn-icon-base text-[22px] text-gray-700 dark:text-slate-400">
