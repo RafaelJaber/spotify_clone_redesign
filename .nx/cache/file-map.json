@@ -25,6 +25,8 @@
     "@angular/cli": "^17.0.10",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^20.11.14",
+    "@types/spotify-web-playback-sdk": "^0.1.19",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "autoprefixer": "^10.4.17",
@@ -93,11 +95,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "7158849831045485995"
+        "hash": "16320417159946901104"
       },
       {
         "file": "package.json",
-        "hash": "1967092597823958720"
+        "hash": "15515440963193750401"
       },
       {
         "file": "src/app/app.component.css",
@@ -124,8 +126,20 @@
         "hash": "1011744602901850734"
       },
       {
+        "file": "src/app/core/@types/index.d.ts",
+        "hash": "7944770025053914007"
+      },
+      {
+        "file": "src/app/core/@types/spotify-player.d.ts",
+        "hash": "10198418096163689912"
+      },
+      {
+        "file": "src/app/core/mappers/player.mapper.ts",
+        "hash": "5906025410266642029"
+      },
+      {
         "file": "src/app/core/mappers/spotify.mapper.ts",
-        "hash": "12232937795747687474"
+        "hash": "726092843788096389"
       },
       {
         "file": "src/app/core/resolvers/user-is-logged-in.resolver.ts",
@@ -145,7 +159,7 @@
       },
       {
         "file": "src/app/domain/interfaces/IArtists.model.ts",
-        "hash": "13028203384680230562"
+        "hash": "2578674118113144366"
       },
       {
         "file": "src/app/domain/interfaces/ICurrentPlay.model.ts",
@@ -168,12 +182,20 @@
         "hash": "9198723971993661363"
       },
       {
+        "file": "src/app/domain/services/player.service.spec.ts",
+        "hash": "16582928794334906303"
+      },
+      {
+        "file": "src/app/domain/services/player.service.ts",
+        "hash": "5613615818286723150"
+      },
+      {
         "file": "src/app/domain/services/spotify.service.spec.ts",
         "hash": "14971892721586704778"
       },
       {
         "file": "src/app/domain/services/spotify.service.ts",
-        "hash": "13390803942240658942"
+        "hash": "11792122005797465104"
       },
       {
         "file": "src/app/domain/services/theme.service.spec.ts",
@@ -225,11 +247,11 @@
       },
       {
         "file": "src/app/web/components/featured-banner/featured-banner.component.html",
-        "hash": "4234010409973329561"
+        "hash": "8472811953706227541"
       },
       {
         "file": "src/app/web/components/featured-banner/featured-banner.component.ts",
-        "hash": "11472924280821404121"
+        "hash": "16435873230070707985"
       },
       {
         "file": "src/app/web/components/left-bar/left-bar.component.css",
@@ -241,7 +263,7 @@
       },
       {
         "file": "src/app/web/components/left-bar/left-bar.component.ts",
-        "hash": "284711052975755634"
+        "hash": "9976972585976540557"
       },
       {
         "file": "src/app/web/components/list-track-table/list-track-table.component.css",
@@ -309,11 +331,11 @@
       },
       {
         "file": "src/app/web/components/right-bar-top-artists/right-bar-top-artists.component.html",
-        "hash": "499902930316065904"
+        "hash": "3314266888150533835"
       },
       {
         "file": "src/app/web/components/right-bar-top-artists/right-bar-top-artists.component.ts",
-        "hash": "11205198418174849858"
+        "hash": "8762889884138129830"
       },
       {
         "file": "src/app/web/components/right-bar/right-bar.component.css",
@@ -325,7 +347,7 @@
       },
       {
         "file": "src/app/web/components/right-bar/right-bar.component.ts",
-        "hash": "10011595680808979491"
+        "hash": "9114454354069560251"
       },
       {
         "file": "src/app/web/components/section-top-playlists/section-top-playlists.component.css",
@@ -357,11 +379,11 @@
       },
       {
         "file": "src/app/web/pages/artists-page/artists-page.component.html",
-        "hash": "4859994398791933759"
+        "hash": "12987180246834355359"
       },
       {
         "file": "src/app/web/pages/artists-page/artists-page.component.ts",
-        "hash": "9874655528600777491"
+        "hash": "1226429532979564826"
       },
       {
         "file": "src/app/web/pages/home-page/home-page.component.css",
@@ -417,7 +439,19 @@
       },
       {
         "file": "src/app/web/pages/player-page/player-page.routes.ts",
-        "hash": "15001778784123971037"
+        "hash": "684723448707603460"
+      },
+      {
+        "file": "src/app/web/pages/track-list-page/track-list-page.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/web/pages/track-list-page/track-list-page.component.html",
+        "hash": "16874771897300269625"
+      },
+      {
+        "file": "src/app/web/pages/track-list-page/track-list-page.component.ts",
+        "hash": "10019305513297396283"
       },
       {
         "file": "src/assets/.gitkeep",
@@ -441,7 +475,7 @@
       },
       {
         "file": "src/environments/environment.development.ts",
-        "hash": "9674261160927127747"
+        "hash": "3543443885161962123"
       },
       {
         "file": "src/environments/environment.ts",
@@ -473,7 +507,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "16533758947600011962"
+        "hash": "17552310061627583000"
       },
       {
         "file": "tsconfig.spec.json",

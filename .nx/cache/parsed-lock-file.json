@@ -2740,9 +2740,9 @@
       "type": "npm",
       "name": "npm:@types/node",
       "data": {
-        "version": "20.11.5",
+        "version": "20.11.14",
         "packageName": "@types/node",
-        "hash": "sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w=="
+        "hash": "sha512-w3yWCcwULefjP9DmDDsgUskrMoOy5Z8MiwKHr1FvqGPtx7CvJzQvxD7eKpxNtklQxLruxSXWddyeRtyud0RcXQ=="
       }
     },
     "npm:@types/node-forge": {
@@ -2824,6 +2824,15 @@
         "version": "0.3.36",
         "packageName": "@types/sockjs",
         "hash": "sha512-MK9V6NzAS1+Ud7JV9lJLFqW85VbC9dq3LmwZCuBe4wBDgKC0Kj/jd8Xl+nSviU+Qc3+m7umHHyHg//2KSa0a0Q=="
+      }
+    },
+    "npm:@types/spotify-web-playback-sdk": {
+      "type": "npm",
+      "name": "npm:@types/spotify-web-playback-sdk",
+      "data": {
+        "version": "0.1.19",
+        "packageName": "@types/spotify-web-playback-sdk",
+        "hash": "sha512-Is7x9gMIMoERxE0uvb2SPFQoy5OR7nO1B24CJiaDAUIdq195OLTQedN95XJQtxB2mfm+zi2j3LvEtpPdHKnB3w=="
       }
     },
     "npm:@types/ws": {
