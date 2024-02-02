@@ -5,12 +5,15 @@ import { IUserModel } from '@domain/interfaces/IUser.model';
 import { environment } from '@environments/environment';
 import {
   SpotifyArtistsModelListToArtists,
+  SpotifyCurrentPlayToCurrentPlay,
   SpotifyMusicModelToMusic,
   SpotifyPlaylistModelToPlaylist,
   SpotifySingleArtistModelToArtist,
   SpotifySinglePlaylistModelToPlaylist,
   SpotifyUserModelToUser,
 } from '@core/mappers/spotify.mapper';
+import { newCurrentPlay } from '@core/utils/factories';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -142,6 +145,49 @@ export class SpotifyService {
     return {
       artist,
     };
+  }
+
+  async playMusic(deviceId: string, musicUri?: string, contextUri?: string) {
+    const options: SpotifyApi.PlayParameterObject = {
+      device_id: deviceId,
+    };
+    if (contextUri) {
+      options.context_uri = contextUri;
+    } else if (musicUri) {
+      options.uris = [musicUri];
+    }
+    await this.spotifyApi.play(options);
+  }
+
+  async getMusicPlaying() {
+    const currentPlay = await this.spotifyApi.getMyCurrentPlayingTrack();
+    if (currentPlay) {
+      return SpotifyCurrentPlayToCurrentPlay(currentPlay);
+    }
+    return newCurrentPlay();
+  }
+
+  async nextMusic() {
+    await this.spotifyApi.skipToNext();
+  }
+
+  async previousMusic() {
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async pauseMusic() {
+    await this.spotifyApi.pause();
+  }
+
+  async resumeMusic() {
+    await this.spotifyApi.play();
+  }
+
+  async getRecentTrack() {
+    const response = await this.spotifyApi.getMyRecentlyPlayedTracks({
+      limit: 1,
+    });
+    return response.items[0].track.uri;
   }
 
   async logout() {

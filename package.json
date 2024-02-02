@@ -36,6 +36,8 @@
     "@angular/cli": "^17.0.10",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^20.11.14",
+    "@types/spotify-web-playback-sdk": "^0.1.19",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "autoprefixer": "^10.4.17",
