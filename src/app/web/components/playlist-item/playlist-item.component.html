@@ -7,18 +7,24 @@
     <span class="ml-1 text-xs font-light select-none dark:text-white">{{ playlist.name }}</span>
   </div>
 
-  @if (isPlaying) {
-    <button class="playlist-interactive-btn">
+  @if (currentlySate().isPlaying && currentlySate().contextUri === playlist.uri) {
+    <button class="playlist-interactive-btn" (click)="onCLickToPlay(undefined)">
       <i class="ph-fill ph-pause text-[32px]"></i>
     </button>
 
-    <div class="absolute text-[32px] right-[16px] bottom-[3px] group-hover:hidden dark:text-white">
-      <i class="ph-fill ph-waveform"></i>
+    <div class="absolute text-[32px] right-[16px] bottom-[9px] group-hover:hidden dark:text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <rect class="eq-bar eq-bar--1" x="4" y="4" width="3.7" height="8"/>
+        <rect class="eq-bar eq-bar--2" x="10.2" y="4" width="3.7" height="16"/>
+        <rect class="eq-bar eq-bar--3" x="16.3" y="4" width="3.7" height="11"/>
+      </svg>
+
     </div>
 
   } @else {
-    <button class="playlist-interactive-btn">
+    <button class="playlist-interactive-btn" (click)="onCLickToPlay(playlist.uri)">
       <i class="ph-fill ph-play text-[32px]"></i>
+      asd
     </button>
   }
 

@@ -160,9 +160,10 @@ export class SpotifyService {
   }
 
   async getMusicPlaying() {
-    const currentPlay = await this.spotifyApi.getMyCurrentPlayingTrack();
-    if (currentPlay) {
-      return SpotifyCurrentPlayToCurrentPlay(currentPlay);
+    const getPlayerResponse = await this.spotifyApi.getMyCurrentPlayingTrack();
+
+    if (getPlayerResponse) {
+      return SpotifyCurrentPlayToCurrentPlay(getPlayerResponse);
     }
     return newCurrentPlay();
   }
@@ -181,6 +182,17 @@ export class SpotifyService {
 
   async resumeMusic() {
     await this.spotifyApi.play();
+  }
+
+  async toggleShuffleOrder(deviceId: string, shuffle: boolean) {
+    await this.spotifyApi.setShuffle(shuffle, { device_id: deviceId });
+  }
+
+  async toggleRepeatMode(
+    deviceId: string,
+    repeat: SpotifyApi.PlaybackRepeatState,
+  ) {
+    await this.spotifyApi.setRepeat(repeat, { device_id: deviceId });
   }
 
   async getRecentTrack() {

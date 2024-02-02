@@ -1,7 +1,8 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Router } from '@angular/router';
 import { newCurrentPlay } from '@core/utils/factories';
 import { SpotifyService } from '@domain/services/spotify.service';
+import { IPlayerConfigsModel } from '@domain/interfaces/IPlayerConfigs.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,10 @@ export class PlayerService {
   private token: string = '';
   private playerState = signal(newCurrentPlay());
   private deviceIdState = signal('');
+  private playerConfig: WritableSignal<IPlayerConfigsModel> = signal({
+    repeat: 'off',
+    shuffle: false,
+  });
   private timerId: any = null;
 
   constructor() {
@@ -69,10 +74,30 @@ export class PlayerService {
     return this.playerState.asReadonly();
   }
 
-  async handleTogglePlay() {
+  async handleTogglePlay(musicUri?: string, contentUri?: string) {
     if (this.playerState().isPlaying == null) {
-      const recentUri = await this.spotifyService.getRecentTrack();
-      await this.spotifyService.playMusic(this.deviceIdState(), recentUri);
+      if (!musicUri && !contentUri) {
+        const recentUri = await this.spotifyService.getRecentTrack();
+        await this.spotifyService.playMusic(this.deviceIdState(), recentUri);
+      } else if (musicUri) {
+        await this.spotifyService.playMusic(this.deviceIdState(), musicUri);
+      } else if (contentUri) {
+        await this.spotifyService.playMusic(
+          this.deviceIdState(),
+          undefined,
+          contentUri,
+        );
+      }
+    } else if (musicUri || contentUri) {
+      if (musicUri) {
+        await this.spotifyService.playMusic(this.deviceIdState(), musicUri);
+      } else {
+        await this.spotifyService.playMusic(
+          this.deviceIdState(),
+          undefined,
+          contentUri,
+        );
+      }
     } else if (this.playerState().isPlaying) {
       await this.spotifyService.pauseMusic();
     } else {

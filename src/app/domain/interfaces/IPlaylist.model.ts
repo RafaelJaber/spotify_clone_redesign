@@ -6,4 +6,5 @@ export interface IPlaylistModel {
   description?: string | null;
   imageUrl: string;
   musics?: IMusicModel[];
+  uri?: string;
 }

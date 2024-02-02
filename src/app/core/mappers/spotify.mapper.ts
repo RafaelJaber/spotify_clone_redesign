@@ -27,6 +27,7 @@ export function SpotifyPlaylistModelToPlaylist(
     name: playlist.name,
     // @ts-ignore
     imageUrl: playlist.images == undefined ? '' : playlist.images.pop().url,
+    uri: playlist.uri,
   };
 }
 
@@ -113,10 +114,12 @@ export function SpotifyArtistsModelListToShortArtists(
 }
 
 export function SpotifyCurrentPlayToCurrentPlay(
-  currentPlay: SpotifyApi.CurrentlyPlayingObject,
+  currentPlay: SpotifyApi.CurrentlyPlayingResponse,
 ): ICurrentPlayModel {
   return {
     isPlaying: currentPlay.is_playing,
+    context: currentPlay.context?.type,
+    contextUri: currentPlay.context?.uri,
     music: currentPlay.item
       ? SpotifyMusicModelToMusic(currentPlay.item)
       : newMusic(),
