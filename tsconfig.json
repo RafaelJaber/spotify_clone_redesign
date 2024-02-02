@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "baseUrl": "src",
+    "typeRoots": ["types"],
     "paths": {
       "@core/*": ["app/core/*"],
       "@domain/*": ["app/domain/*"],

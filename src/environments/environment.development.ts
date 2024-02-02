@@ -12,5 +12,8 @@ export const environment = {
     'playlist-read-private', // ler playlists privadas
     'playlist-read-collaborative', // ler playlists colaborativas
     'user-follow-read', // ler quem o usuário segue
+    'user-read-private', // ler algo
+    'user-read-email', // ler email
+    'streaming', // realizar o streaming
   ],
 };
