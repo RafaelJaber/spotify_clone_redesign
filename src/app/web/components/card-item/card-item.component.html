@@ -10,8 +10,16 @@
     <span class="text-xs truncate dark:text-zinc-200">{{ item.description }}</span>
   </div>
 
-  <button class="playlist-interactive-btn">
-    <i class="ph-fill ph-play text-[32px]"></i>
-  </button>
+  @if (currentlySate().isPlaying && currentlySate().contextUri === item.uri) {
+    <button class="playlist-interactive-btn" (click)="onCLickToPlay(undefined)">
+      <i class="ph-fill ph-pause text-[32px]"></i>
+    </button>
+  } @else {
+    <button class="playlist-interactive-btn" (click)="onCLickToPlay(item.uri)">
+      <i class="ph-fill ph-play text-[32px]"></i>
+    </button>
+  }
+
+
 
 </div>
