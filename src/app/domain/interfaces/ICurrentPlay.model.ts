@@ -5,4 +5,5 @@ export interface ICurrentPlayModel {
   music: IMusicModel;
   context?: 'artist' | 'playlist' | 'album';
   contextUri?: string | null;
+  progressMilliseconds?: number | null;
 }

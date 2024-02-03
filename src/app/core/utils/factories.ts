@@ -20,7 +20,7 @@ export function newMusic(): IMusicModel {
     title: '',
     artists: [],
     album: newAlbum(),
-    time: '',
+    time: '0:00',
     uri: '',
   };
 }

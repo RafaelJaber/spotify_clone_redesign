@@ -88,6 +88,7 @@ export function SpotifyMusicModelToMusic(
     artists: spotifyTrack.artists.map(SpotifyArtistsModelListToShortArtists),
     time: msToMinutes(spotifyTrack.duration_ms),
     uri: spotifyTrack.uri,
+    timeInMilliseconds: spotifyTrack.duration_ms,
   };
 }
 
@@ -120,6 +121,7 @@ export function SpotifyCurrentPlayToCurrentPlay(
     isPlaying: currentPlay.is_playing,
     context: currentPlay.context?.type,
     contextUri: currentPlay.context?.uri,
+    progressMilliseconds: currentPlay.progress_ms,
     music: currentPlay.item
       ? SpotifyMusicModelToMusic(currentPlay.item)
       : newMusic(),

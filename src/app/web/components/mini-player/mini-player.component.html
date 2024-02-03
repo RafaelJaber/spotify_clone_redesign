@@ -9,9 +9,9 @@
     </div>
 
     <div class="flex gap-2 items-center dark:text-slate-300">
-      <span class="text-xs">3:40</span>
+      <span class="text-xs">{{ converterMsToMin(playerStateSignal().progressMilliseconds) }}</span>
       <div class="w-full relative rounded-full bg-slate-300 h-1">
-        <div class="w-[60%] absolute top-0 left-0 rounded-full bg-green-400 h-1" ></div>
+        <div class="absolute top-0 left-0 rounded-full bg-green-400 h-1" [style.width]="getProgress()"></div>
       </div>
       <span class="text-xs">{{ playerStateSignal().music.time }}</span>
     </div>

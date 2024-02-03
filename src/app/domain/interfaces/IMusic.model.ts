@@ -8,4 +8,5 @@ export interface IMusicModel {
   album: IAlbumModel;
   time: string;
   uri: string;
+  timeInMilliseconds?: number;
 }

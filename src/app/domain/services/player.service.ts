@@ -46,9 +46,9 @@ export class PlayerService {
         this.setCurrentMusic();
       });
 
-      this.spotifyPlayer.addListener('player_state_changed', () => {
-        this.getCurrentMusic();
-      });
+      // this.spotifyPlayer.addListener('player_state_changed', () => {
+      //   //this.getCurrentMusic();
+      // });
 
       this.spotifyPlayer.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID has gone offline', device_id);
@@ -124,9 +124,15 @@ export class PlayerService {
     clearTimeout(this.timerId);
     const currentMusic = await this.spotifyService.getMusicPlaying();
     this.playerState.set(currentMusic);
-    this.timerId = setInterval(async () => {
-      await this.getCurrentMusic();
-    }, 3000);
+    if (this.playerState().isPlaying) {
+      this.timerId = setInterval(async () => {
+        await this.getCurrentMusic();
+      }, 1000);
+    } else {
+      this.timerId = setInterval(async () => {
+        await this.getCurrentMusic();
+      }, 3000);
+    }
   }
 
   private async validateToken() {
