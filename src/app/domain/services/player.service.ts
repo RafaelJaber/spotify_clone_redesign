@@ -94,6 +94,7 @@ export class PlayerService {
         );
       }
     } else if (musicUri || contentUri) {
+      console.log('aquuiiiiii');
       if (musicUri) {
         await this.spotifyService.playMusic(this.deviceIdState(), musicUri);
       } else {

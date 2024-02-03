@@ -6,4 +6,5 @@ export interface IArtistsModel {
   imageUrl: string;
   musics?: IMusicModel[];
   additionalInfo?: string;
+  uri?: string;
 }

@@ -127,19 +127,19 @@
       },
       {
         "file": "src/app/core/@types/index.d.ts",
-        "hash": "7944770025053914007"
+        "hash": "12376174061166906365"
       },
       {
         "file": "src/app/core/@types/spotify-player.d.ts",
-        "hash": "10198418096163689912"
+        "hash": "10686456033296258200"
       },
       {
         "file": "src/app/core/mappers/player.mapper.ts",
-        "hash": "5906025410266642029"
+        "hash": "153385503526162986"
       },
       {
         "file": "src/app/core/mappers/spotify.mapper.ts",
-        "hash": "726092843788096389"
+        "hash": "7453892905001027155"
       },
       {
         "file": "src/app/core/resolvers/user-is-logged-in.resolver.ts",
@@ -147,7 +147,7 @@
       },
       {
         "file": "src/app/core/utils/factories.ts",
-        "hash": "14523394553520072090"
+        "hash": "5213081553716991190"
       },
       {
         "file": "src/app/domain/enums/theme.enum.ts",
@@ -159,19 +159,23 @@
       },
       {
         "file": "src/app/domain/interfaces/IArtists.model.ts",
-        "hash": "2578674118113144366"
+        "hash": "25746152666344045"
       },
       {
         "file": "src/app/domain/interfaces/ICurrentPlay.model.ts",
-        "hash": "9045537422569234080"
+        "hash": "4488909772402359876"
       },
       {
         "file": "src/app/domain/interfaces/IMusic.model.ts",
-        "hash": "4339115665724628984"
+        "hash": "11589309257183407115"
+      },
+      {
+        "file": "src/app/domain/interfaces/IPlayerConfigs.model.ts",
+        "hash": "2755058675648617025"
       },
       {
         "file": "src/app/domain/interfaces/IPlaylist.model.ts",
-        "hash": "926692172215465862"
+        "hash": "6999266045539839148"
       },
       {
         "file": "src/app/domain/interfaces/IShortArtists.model.ts",
@@ -182,24 +186,12 @@
         "hash": "9198723971993661363"
       },
       {
-        "file": "src/app/domain/services/player.service.spec.ts",
-        "hash": "16582928794334906303"
-      },
-      {
         "file": "src/app/domain/services/player.service.ts",
-        "hash": "5613615818286723150"
-      },
-      {
-        "file": "src/app/domain/services/spotify.service.spec.ts",
-        "hash": "14971892721586704778"
+        "hash": "16608652321072852845"
       },
       {
         "file": "src/app/domain/services/spotify.service.ts",
-        "hash": "11792122005797465104"
-      },
-      {
-        "file": "src/app/domain/services/theme.service.spec.ts",
-        "hash": "12659729553284747897"
+        "hash": "16038636008440637402"
       },
       {
         "file": "src/app/domain/services/theme.service.ts",
@@ -223,11 +215,11 @@
       },
       {
         "file": "src/app/web/components/card-item/card-item.component.html",
-        "hash": "9820496101020575407"
+        "hash": "2879754766608055501"
       },
       {
         "file": "src/app/web/components/card-item/card-item.component.ts",
-        "hash": "504798361959912975"
+        "hash": "241232523403502529"
       },
       {
         "file": "src/app/web/components/drag-scroll/drag-scroll.component.css",
@@ -247,11 +239,11 @@
       },
       {
         "file": "src/app/web/components/featured-banner/featured-banner.component.html",
-        "hash": "8472811953706227541"
+        "hash": "17105263140540976936"
       },
       {
         "file": "src/app/web/components/featured-banner/featured-banner.component.ts",
-        "hash": "16435873230070707985"
+        "hash": "12136535408539085974"
       },
       {
         "file": "src/app/web/components/left-bar/left-bar.component.css",
@@ -259,7 +251,7 @@
       },
       {
         "file": "src/app/web/components/left-bar/left-bar.component.html",
-        "hash": "16850004109977648249"
+        "hash": "11900024870364259422"
       },
       {
         "file": "src/app/web/components/left-bar/left-bar.component.ts",
@@ -271,11 +263,11 @@
       },
       {
         "file": "src/app/web/components/list-track-table/list-track-table.component.html",
-        "hash": "13710841847197456756"
+        "hash": "6548723822026507185"
       },
       {
         "file": "src/app/web/components/list-track-table/list-track-table.component.ts",
-        "hash": "368479174223981050"
+        "hash": "9834156384941526322"
       },
       {
         "file": "src/app/web/components/mini-player/mini-player.component.css",
@@ -283,11 +275,11 @@
       },
       {
         "file": "src/app/web/components/mini-player/mini-player.component.html",
-        "hash": "5690166835480203840"
+        "hash": "12719259226561619038"
       },
       {
         "file": "src/app/web/components/mini-player/mini-player.component.ts",
-        "hash": "12968513499472518692"
+        "hash": "17600244280834513136"
       },
       {
         "file": "src/app/web/components/paginator/paginator.component.css",
@@ -303,15 +295,15 @@
       },
       {
         "file": "src/app/web/components/playlist-item/playlist-item.component.css",
-        "hash": "1255729559089439218"
+        "hash": "7170157534853883107"
       },
       {
         "file": "src/app/web/components/playlist-item/playlist-item.component.html",
-        "hash": "16172138388799543904"
+        "hash": "17903534072202536479"
       },
       {
         "file": "src/app/web/components/playlist-item/playlist-item.component.ts",
-        "hash": "9202039486312210378"
+        "hash": "5838493864250230360"
       },
       {
         "file": "src/app/web/components/right-bar-top-artists-item/right-bar-top-artists-item.component.css",
@@ -343,11 +335,11 @@
       },
       {
         "file": "src/app/web/components/right-bar/right-bar.component.html",
-        "hash": "7609159543079189656"
+        "hash": "6424018939543152038"
       },
       {
         "file": "src/app/web/components/right-bar/right-bar.component.ts",
-        "hash": "9114454354069560251"
+        "hash": "10011595680808979491"
       },
       {
         "file": "src/app/web/components/section-top-playlists/section-top-playlists.component.css",
@@ -447,7 +439,7 @@
       },
       {
         "file": "src/app/web/pages/track-list-page/track-list-page.component.html",
-        "hash": "16874771897300269625"
+        "hash": "6426981948471912944"
       },
       {
         "file": "src/app/web/pages/track-list-page/track-list-page.component.ts",
@@ -475,7 +467,7 @@
       },
       {
         "file": "src/environments/environment.development.ts",
-        "hash": "3543443885161962123"
+        "hash": "13050015932695839459"
       },
       {
         "file": "src/environments/environment.ts",
@@ -495,7 +487,7 @@
       },
       {
         "file": "src/styles.css",
-        "hash": "556684414131550821"
+        "hash": "3807282545098534803"
       },
       {
         "file": "tailwind.config.js",

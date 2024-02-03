@@ -58,6 +58,7 @@ export function SpotifySingleArtistModelToArtist(
     imageUrl: artist.images == undefined ? '' : artist.images.pop().url,
     musics: [],
     additionalInfo: artist.followers.total + ' Seguidores',
+    uri: artist.uri,
   };
 }
 
@@ -71,6 +72,7 @@ export function SpotifyArtistsModelListToArtists(
       ? // @ts-ignore
         artists.images.sort((a, b) => a.width - b.width).pop().url
       : '',
+    uri: artists.uri,
   };
 }
 

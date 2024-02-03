@@ -21,17 +21,10 @@
         >
           <i class="ph-fill ph-heart text-[22px]"></i>
         </app-button-navigation>
-        <app-button-navigation
-          text="Artistas"
-          [ngClass]="selected === 'Artists' ? 'btn-active' : ''"
-          (click)="onNavMenuClicked('Artists')"
-        >
-          <i class="ph-fill ph-guitar text-[22px]"></i>
-        </app-button-navigation>
       </div>
     </div>
 
-    <div class="flex flex-col justify-center mt-8 scrollbar-thin overflow-y-scroll">
+    <div class="flex flex-col justify-center mt-16 scrollbar-thin overflow-y-scroll">
       <span class="text-gray-500 text-xs font-normal ml-4">PLAYLIST</span>
       <div class="flex flex-col gap-3 m-auto mt-2 " style="max-height: calc(100vh - 456px)">
         @for (playlist of playlists; track $index) {
