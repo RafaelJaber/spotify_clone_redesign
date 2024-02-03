@@ -9,4 +9,5 @@ export interface IMusicModel {
   time: string;
   uri: string;
   timeInMilliseconds?: number;
+  liked?: boolean;
 }

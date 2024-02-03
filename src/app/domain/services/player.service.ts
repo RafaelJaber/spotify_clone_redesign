@@ -17,6 +17,7 @@ export class PlayerService {
   private playerConfig: WritableSignal<IPlayerConfigsModel> = signal({
     repeat: 'off',
     shuffle: false,
+    volume: 1,
   });
   private timerId: any = null;
 
@@ -38,7 +39,7 @@ export class PlayerService {
         getOAuthToken: (cb) => {
           cb(accessToken);
         },
-        volume: 0.5,
+        volume: this.playerConfig().volume,
       });
 
       this.spotifyPlayer.addListener('ready', ({ device_id }) => {
@@ -72,6 +73,10 @@ export class PlayerService {
 
   getPlayerState() {
     return this.playerState.asReadonly();
+  }
+
+  getPlayerConfigSignal() {
+    return this.playerConfig.asReadonly();
   }
 
   async handleTogglePlay(musicUri?: string, contentUri?: string) {
@@ -123,6 +128,9 @@ export class PlayerService {
   private async getCurrentMusic() {
     clearTimeout(this.timerId);
     const currentMusic = await this.spotifyService.getMusicPlaying();
+    if (currentMusic.music.id != '') {
+      currentMusic.music.liked = await this.trackIsLiked(currentMusic.music.id);
+    }
     this.playerState.set(currentMusic);
     if (this.playerState().isPlaying) {
       this.timerId = setInterval(async () => {
@@ -133,6 +141,61 @@ export class PlayerService {
         await this.getCurrentMusic();
       }, 3000);
     }
+  }
+
+  async saveTrackFunction(track: string) {
+    const trackIsLiked = await this.trackIsLiked(track);
+    if (trackIsLiked) {
+      await this.spotifyService.removeFromSaveTracks([track]);
+    } else {
+      await this.spotifyService.addFromSaveTracks([track]);
+    }
+  }
+
+  async changeVolume(volume: number) {
+    this.spotifyPlayer?.setVolume(volume);
+    this.playerConfig.update((configs) => {
+      return {
+        volume,
+        shuffle: configs.shuffle,
+        repeat: configs.repeat,
+      };
+    });
+  }
+
+  async toggleShuffle() {
+    const shuffle = !this.playerConfig().shuffle;
+    await this.spotifyService.toggleShuffleOrder(this.deviceIdState(), shuffle);
+    this.playerConfig.update((configs) => {
+      return {
+        shuffle,
+        volume: configs.volume,
+        repeat: configs.repeat,
+      };
+    });
+  }
+
+  async trackIsLiked(track: string): Promise<boolean> {
+    const tracks = [track];
+    const response = await this.spotifyService.checkUserSaveTrack(tracks);
+    return response[0];
+  }
+
+  async repeat() {
+    let repeat: 'off' | 'track' = 'off';
+    if (this.playerConfig().repeat === 'off') {
+      repeat = 'track';
+    } else {
+      repeat = 'off';
+    }
+    await this.spotifyService.toggleRepeatMode(this.deviceIdState(), repeat);
+    this.playerConfig.update((configs) => {
+      return {
+        repeat,
+        shuffle: configs.shuffle,
+        volume: configs.volume,
+      };
+    });
   }
 
   private async validateToken() {

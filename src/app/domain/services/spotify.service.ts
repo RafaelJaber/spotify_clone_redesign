@@ -202,6 +202,19 @@ export class SpotifyService {
     return response.items[0].track.uri;
   }
 
+  async checkUserSaveTrack(tracks: string[]) {
+    const response = await this.spotifyApi.containsMySavedTracks(tracks);
+    return response.map((item) => item);
+  }
+
+  async addFromSaveTracks(tracks: string[]) {
+    return await this.spotifyApi.addToMySavedTracks(tracks);
+  }
+
+  async removeFromSaveTracks(tracks: string[]) {
+    return await this.spotifyApi.removeFromMySavedTracks(tracks);
+  }
+
   async logout() {
     localStorage.clear();
     await this.router.navigate(['/login']);

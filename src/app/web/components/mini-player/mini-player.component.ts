@@ -1,11 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PlayerService } from '@domain/services/player.service';
 import { addMilliseconds, format } from 'date-fns';
+import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-mini-player',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, NgClass],
   templateUrl: './mini-player.component.html',
   styleUrl: './mini-player.component.css',
 })
@@ -13,7 +15,7 @@ export class MiniPlayerComponent implements OnInit {
   private playerService = inject(PlayerService);
 
   protected playerStateSignal = this.playerService.getPlayerState();
-
+  protected playerConfigSignal = this.playerService.getPlayerConfigSignal();
   ngOnInit() {
     this.playerService.initPlayer().then();
   }
@@ -44,5 +46,22 @@ export class MiniPlayerComponent implements OnInit {
 
   async onPreviousClick() {
     await this.playerService.handlePreviousTrack();
+  }
+
+  async onChangeVolume(event: any) {
+    const volume = event.target.value / 100;
+    await this.playerService.changeVolume(volume);
+  }
+
+  async onShuffleClick() {
+    await this.playerService.toggleShuffle();
+  }
+
+  async onClickLike(trackId: string) {
+    await this.playerService.saveTrackFunction(trackId);
+  }
+
+  async repeatClick() {
+    await this.playerService.repeat();
   }
 }
