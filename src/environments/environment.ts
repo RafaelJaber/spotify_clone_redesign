@@ -1,4 +1,5 @@
 export const environment = {
+  clientId: '',
   authEndpoint: 'https://accounts.spotify.com/authorize',
   redirectUri: 'https://spotify-clone-redesign-tau.vercel.app/login/',
   scopes: [
